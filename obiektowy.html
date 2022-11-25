@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>obiektowość</title>
+</head>
+
+<body>
+    <h3>elementy obiektowości w javascript</h3>
+    <script>
+        class Pojazd {
+            constructor(marka, typ) {
+                this.marka = marka;
+                this.typ = typ;
+
+            }
+
+            getMarka() {
+                return this.marka;
+            }
+
+            getTyp() {
+                return this.typ;
+            }
+        }
+
+        class Osobowy extends Pojazd {
+            constructor(marka) {
+                super(marka, 'samochód osobowy');
+            }
+            getMarka() {
+                return "To jest samochód osobowy marki: " + this.marka;
+            }
+        }
+
+        let p = new Pojazd('BMW', 'samochód osobowy');
+        console.log(p.getMarka());
+        console.log(p.getTyp());
+
+        let audi = new Osobowy("Audi");
+        console.log(audi.getMarka());
+        console.log(audi.getTyp());
+    </script>
+</body>
+
+</html>
