@@ -35,9 +35,9 @@ function App() {
         const inc = count + 1 > startCount ? count + 1: Number(count+1) + startCount;
         setCount(inc);
     },[count,startCount]);
-    
+
     const [listItems,setListItems] = useState<Array<ListItem>>();
-    
+
     useEffect(()=>{
         const li = [];
         for(let i=0;i<count;i++){
@@ -45,15 +45,36 @@ function App() {
         }
         setListItems(li);
     },[count]);
-    
+
     const onWelcomeBtnClick = () => {
         setCountCallback();
     }
-    
+
     const onChangeStartCount = (e:React.ChangeEvent<HTMLInputElement>) => {
         setStartCount(Number(e.target.value));
     }
-
+    console.log("Renderuję komponent App");
+    
+    return (
+        <div className="App">
+            <header className="App-header">
+                <img src={logo} className="App-logo" alt="logo"/>
+                <Greeting enteredName={enteredName} message={message} greetingDispatcher={dispatch}/>
+                <div style={{marginTop: '10px'}}>
+                    <label> Wpisz liczbę i inkremetuj ją</label>
+                    <br/>
+                    <input value={startCount} onChange={onChangeStartCount}
+                    style={{width: '.75rem'}}/> &nbsp;
+                    <label>{count}</label>
+                    <br/>
+                    <button onClick={onWelcomeBtnClick}>Inkrementuj liczbę</button>
+                </div>
+                <div>
+                    <ListCreator listItems={listItems}/>
+                </div>
+            </header>
+        </div>
+    )
 }
 
 
