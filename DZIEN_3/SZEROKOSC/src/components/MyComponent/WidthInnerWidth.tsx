@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 
 const WidthInnerWidth = (Component: any) => (props: any) => {
     const [innerWidth, setInnerWidth] = useState(window.innerWidth)
-    
+
     const handleResize = () => {
         setInnerWidth(window.innerWidth)
     }
-    
+
     useEffect(()=>{
         window.addEventListener('resize',handleResize)
         
@@ -18,4 +18,4 @@ const WidthInnerWidth = (Component: any) => (props: any) => {
     return <Component {...props} innerWidth = {innerWidth}/>
 }
 
-export default WidthInnerWidth()
+export default WidthInnerWidth
