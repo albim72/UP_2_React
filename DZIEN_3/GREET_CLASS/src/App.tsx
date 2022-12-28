@@ -8,7 +8,7 @@ class App extends React.Component {
 
   constructor(props: any) {
     super(props);
-    
+
     this.state = {
       enteredName: "",
       message: ""
@@ -19,13 +19,13 @@ class App extends React.Component {
   onChangeName(e:React.ChangeEvent<HTMLInputElement>){
     this.setState({
       enteredName: e.target.value,
-      message: 'Witaj z App, ${e.target.value}'
+      message: 'Witaj z App '+ e.target.value
     });
   }
 
   render() {
     console.log("Renderuję komponent główny App");
-    
+
     return (
         <div className="App">
           <header className="App-header">
